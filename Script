@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "" > ans
+for i in {1..1000}
+do
+        inp="data"$i
+        echo -n "input = "$inp >> ans
+        echo $inp | openssl dgst -sha256  >> ans
+done
+
+grep '(stdin)= 00' ans
